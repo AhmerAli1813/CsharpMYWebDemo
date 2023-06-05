@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AhmerMYWebDemo.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230529152852_IntailThird")]
-    partial class IntailThird
+    [Migration("20230605152442_ForthTime")]
+    partial class ForthTime
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,8 +36,8 @@ namespace AhmerMYWebDemo.Migrations
                     b.Property<float>("EAmount")
                         .HasColumnType("real");
 
-                    b.Property<string>("EMonth")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("EMonth")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Edate")
                         .HasColumnType("datetime2");

@@ -33,8 +33,8 @@ namespace AhmerMYWebDemo.Migrations
                     b.Property<float>("EAmount")
                         .HasColumnType("real");
 
-                    b.Property<string>("EMonth")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("EMonth")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Edate")
                         .HasColumnType("datetime2");

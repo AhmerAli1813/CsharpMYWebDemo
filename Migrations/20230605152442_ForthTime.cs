@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AhmerMYWebDemo.Migrations
 {
     /// <inheritdoc />
-    public partial class IntailThird : Migration
+    public partial class ForthTime : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,7 +34,7 @@ namespace AhmerMYWebDemo.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EMonth = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EMonth = table.Column<int>(type: "int", nullable: false),
                     Edate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EAmount = table.Column<float>(type: "real", nullable: false),
                     EmployeesId = table.Column<int>(type: "int", nullable: false)

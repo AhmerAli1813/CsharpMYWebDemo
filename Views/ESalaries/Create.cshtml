@@ -1,4 +1,5 @@
-﻿@model AhmerMYWebDemo.Models.ESalary
+﻿@using static AhmerMYWebDemo.Models.ESalary;
+@model AhmerMYWebDemo.Models.ESalary
 
 @{
     ViewData["Title"] = "Create";
@@ -15,7 +16,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="EMonth" class="control-label"></label>
-                <input asp-for="EMonth" class="form-control" />
+                <select asp-for="EMonth" class="form-control" asp-items="Html.GetEnumSelectList<Month>()"></select>
                 <span asp-validation-for="EMonth" class="text-danger"></span>
             </div>
             <div class="form-group">
