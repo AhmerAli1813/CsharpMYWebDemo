@@ -53,7 +53,7 @@ namespace AhmerMYWebDemo.Controllers
         // GET: ESalaries/Create
         public IActionResult Create()
         {
-            ViewData["EmployeesId"] = new SelectList(_context.ObjEmployees, "E_Id", "E_Name");
+            ViewData["EmployeesData"] = new SelectList(_context.ObjEmployees, "E_Id", "E_Name");
             return View();
         }
 
@@ -70,8 +70,7 @@ namespace AhmerMYWebDemo.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             //}
-            ViewData["EmployeesId"] = new SelectList(_context.ObjEmployees, "E_Id", "E_Name", eSalary.EmployeesId);
-            return View(eSalary);
+            
         }
 
         // GET: ESalaries/Edit/5
@@ -83,10 +82,7 @@ namespace AhmerMYWebDemo.Controllers
             }
 
             var eSalary = await _context.Salary.FindAsync(id);
-            if (eSalary == null)
-            {
-                return NotFound();
-            }
+            
             ViewData["EmployeesId"] = new SelectList(_context.ObjEmployees, "E_Id", "E_Name", eSalary.EmployeesId);
             return View(eSalary);
         }
@@ -98,10 +94,7 @@ namespace AhmerMYWebDemo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,EMonth,Edate,EAmount,EmployeesId")] ESalary eSalary)
         {
-            if (id != eSalary.Id)
-            {
-                return NotFound();
-            }
+            
 
             //if (ModelState.IsValid)
             //{
@@ -112,14 +105,7 @@ namespace AhmerMYWebDemo.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ESalaryExists(eSalary.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    
                 }
                 return RedirectToAction(nameof(Index));
             //}
