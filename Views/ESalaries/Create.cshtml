@@ -24,12 +24,12 @@
                 <span asp-validation-for="Edate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EAmount" class="control-label"></label>
+                <label asp-for="EAmount" class="control-label">Amount</label>
                 <input asp-for="EAmount" class="form-control" />
                 <span asp-validation-for="EAmount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmployeesId" class="control-label"></label>
+                <label asp-for="EmployeesId" class="control-label">Employee</label>
                 <select asp-for="EmployeesId" class ="form-control" asp-items="ViewBag.EmployeesData"></select>
             </div>
             <div class="form-group">
