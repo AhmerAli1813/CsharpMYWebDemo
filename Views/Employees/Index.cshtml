@@ -20,11 +20,12 @@
                 @Html.DisplayNameFor(model => model.E_Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.E_Password)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.E_Address)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E_Password)
+            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.E_ConfirmPassword)
             </th>
@@ -40,11 +41,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.E_Email)
             </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.E_Address)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.E_Password)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.E_Address)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.E_ConfirmPassword)

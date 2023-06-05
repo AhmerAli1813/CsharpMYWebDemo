@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AhmerMYWebDemo.Models;
+using Microsoft.Identity.Client;
 
 namespace AhmerMYWebDemo.Controllers
 {
@@ -19,13 +20,20 @@ namespace AhmerMYWebDemo.Controllers
         }
 
         // GET: Employees
-        public async Task<IActionResult> Index()
-        {
-              return _context.ObjEmployees != null ? 
-                          View(await _context.ObjEmployees.ToListAsync()) :
-                          Problem("Entity set 'MyDbContext.ObjEmployees'  is null.");
-        }
+        //public async Task<IActionResult> Index()
+        //{
+        //      return _context.ObjEmployees != null ? 
 
+        //                  View(await _context.ObjEmployees.ToListAsync()) :
+        //                  Problem("Entity set 'MyDbContext.ObjEmployees'  is null.");
+        //}
+
+        public IActionResult Index()
+        {
+            var x = from a in _context.ObjEmployees
+                    orderby a.E_Name ascending select a ;
+            return View(x.ToList());
+        }
         // GET: Employees/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -55,7 +63,7 @@ namespace AhmerMYWebDemo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("E_Id,E_Name,E_Email,E_Password,E_Address,E_ConfirmPassword")] Employees employees)
+        public async Task<IActionResult> Create( Employees employees)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +95,7 @@ namespace AhmerMYWebDemo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("E_Id,E_Name,E_Email,E_Password,E_Address,E_ConfirmPassword")] Employees employees)
+        public async Task<IActionResult> Edit(int id,  Employees employees)
         {
             if (id != employees.E_Id)
             {

@@ -24,6 +24,12 @@ namespace AhmerMYWebDemo.Controllers
             var myDbContext = _context.Salary.Include(e => e.Employees);
             return View(await myDbContext.ToListAsync());
         }
+        //public  IActionResult Index()
+        //{
+        //    var sumOfSalray  = 
+
+        //    return View();
+        //}
 
         // GET: ESalaries/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -58,12 +64,12 @@ namespace AhmerMYWebDemo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,EMonth,Edate,EAmount,EmployeesId")] ESalary eSalary)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 _context.Add(eSalary);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            //}
             ViewData["EmployeesId"] = new SelectList(_context.ObjEmployees, "E_Id", "E_Name", eSalary.EmployeesId);
             return View(eSalary);
         }
@@ -97,8 +103,8 @@ namespace AhmerMYWebDemo.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 try
                 {
                     _context.Update(eSalary);
@@ -116,9 +122,9 @@ namespace AhmerMYWebDemo.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["EmployeesId"] = new SelectList(_context.ObjEmployees, "E_Id", "E_Name", eSalary.EmployeesId);
-            return View(eSalary);
+            //}
+            //ViewData["EmployeesId"] = new SelectList(_context.ObjEmployees, "E_Id", "E_Name", eSalary.EmployeesId);
+            //return View(eSalary);
         }
 
         // GET: ESalaries/Delete/5
