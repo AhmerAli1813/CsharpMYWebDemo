@@ -14,6 +14,7 @@ namespace AhmerMYWebDemo.Models
         }
         public DbSet<Employees> ObjEmployees { get; set; }
         public  DbSet<ESalary> Salary { get; set; }
+        public DbSet<Departments> Department { get; set; }
 
     }
 }
