@@ -28,7 +28,7 @@ namespace AhmerMYWebDemo.Models
 
 
 		[Required]
-		[MaxLength(20 , ErrorMessage = " you leght id icrease")  , MinLength(5 , ErrorMessage = " you leght id deicrease")]
+		[MaxLength(20 , ErrorMessage = " you password leght must be greater then 8")  , MinLength(5 , ErrorMessage = " you leght id decrease")]
 		[DataType(DataType.Password)]
 
 

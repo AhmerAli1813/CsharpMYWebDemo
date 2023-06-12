@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AhmerMYWebDemo.Models;
 using Microsoft.Identity.Client;
+using System.Runtime.CompilerServices;
 
 namespace AhmerMYWebDemo.Controllers
 {
@@ -74,6 +75,29 @@ namespace AhmerMYWebDemo.Controllers
             return View(employees);
         }
 
+        [HttpGet]
+        public IActionResult login()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult login(Employees login)
+        {
+            var l = from a in _context.ObjEmployees
+                    where a.E_Email == login.E_Email && a.E_Password == login.E_Password
+                    select a;
+
+            if (l.Any())
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.msg = "Invalid login";
+            }
+            return View();
+        }
         // GET: Employees/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

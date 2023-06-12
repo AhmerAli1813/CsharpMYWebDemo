@@ -11,7 +11,9 @@ namespace AhmerMYWebDemo.Models
         [Required]
         [StringLength(50)]
         public string? Dep_Name { get; set; }
-        
+        [Required]
+        [StringLength(50)]
+        public string? Dep_Designation { get; set; }
         public Employees Employees { get; set; }
         [Required]
         public int EmployeesId { get; set; }

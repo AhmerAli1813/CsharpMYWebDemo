@@ -22,14 +22,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.E_Address)
             </th>
+            
             <th>
-                @Html.DisplayNameFor(model => model.E_Password)
+                password
             </th>
-           
-            <th>
-                @Html.DisplayNameFor(model => model.E_ConfirmPassword)
-            </th>
-            <th></th>
+
+
         </tr>
     </thead>
     <tbody>
@@ -45,12 +43,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.E_Address)
                 </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.E_Password)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.E_ConfirmPassword)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.E_Password)
+                </td>
+
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.E_Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.E_Id">Details</a> |
