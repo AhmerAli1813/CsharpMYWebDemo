@@ -1,8 +1,8 @@
-﻿using AhmerMYWebDemo.Models;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace AhmerMYWebDemo.Controllers
+namespace .Controllers
 {
 	public class HomeController : Controller
 	{

@@ -1,20 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace AhmerMYWebDemo.Models
 {
     public class MyDbContext : DbContext
     {
-
-
-
-
-
-        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
+public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
         }
-        public DbSet<Employees> ObjEmployees { get; set; }
-        public  DbSet<ESalary> Salary { get; set; }
-        public DbSet<Departments> Department { get; set; }
+        public  DbSet<Category> categories { get; set; }   
+        public DbSet<Product> products { get; set; }
 
     }
 }
