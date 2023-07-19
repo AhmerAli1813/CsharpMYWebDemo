@@ -1,0 +1,380 @@
+body{
+    background-color: var(--body-color);
+    color: var(--text-color);
+  font-family: var(--font-default) !important;
+
+}
+.bg-body{background-color: var(--body-color) !important; border-color: var(--body-color);}
+hr{height: 2px;}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+  color: var(--text-color);
+}
+
+.txt-clr{
+    color: var(--text-color) !important;
+}
+/* form css */
+.form-control:focus ,.form-select:focus ,.btn:focus {
+    border-color: var(--first-color);
+    box-shadow: var(--first-color-light) 0px 0px 0px 0.25rem;
+}
+select option:hover,select:focus > option:checked ,option:selected {
+    cursor: pointer;
+    background-color: var(--first-color-light) !important;
+}
+form label , form span {color:var(--text-color) !important;}
+/*--------------------------------------------------------------
+#tabels 
+--------------------------------------------------------------*/
+table , table.table{color: var(--text-color);}
+/*table  css start */
+.table ,.table-striped>tbody>tr:nth-of-type(odd) {
+  color: var(--text-color) !important;
+}
+.table-form{
+  width: 70%;
+  margin: auto;
+border: 1px solid var(--first-color);
+padding: 1em 2em;
+}
+/*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+.breadcrumbs {
+    padding: 15px 0;
+    background: rgba(55, 55, 63, 0.05);
+    margin-top: 90px;
+    cursor: pointer ;
+  }
+  
+  @media (max-width: 575px) {
+    .breadcrumbs {
+      margin-top: 70px;
+    }
+  }
+  
+  .breadcrumbs h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+  }
+  
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .breadcrumbs ol li+li {
+    padding-left: 10px;
+  }
+  .breadcrumb-item+.breadcrumb-item::before {color: var(--text-color);}
+  .breadcrumbs ol li+li::before {
+    display: inline-block;
+    padding-right: 10px;
+    color: var(--text-color) !important;
+    content: "/";
+  }
+  
+.breadcrumb-item a{
+  color: var(--text-color);
+}
+.breadcrumb-item.active a  {
+  text-decoration: none;  
+  pointer-events: none;
+      color: var(--first-color);
+}
+.breadcrumb-item.active::before{color: var(--first-color);}
+  
+  
+  @media (max-width: 992px) {
+    .breadcrumbs .d-flex {
+      display: block !important;
+    }
+  
+    .breadcrumbs h2 {
+      margin-bottom: 10px;
+    }
+  
+    .breadcrumbs ol {
+      display: block;
+    }
+  
+    .breadcrumbs ol li {
+      display: inline-block;
+    }
+  }
+  
+  /*--------------------------------------------------------------
+  # Scroll top button
+  --------------------------------------------------------------*/
+  .scroll-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 99999;
+    background: var(--color-primary);
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    transition: all 0.4s;
+  }
+  
+  .scroll-top i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+  }
+  
+  .scroll-top:hover {
+    background: var(--first-color-dark);
+    color: #fff;
+  }
+  
+  .scroll-top.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /*--------------------------------------------------------------
+  # Preloader
+  --------------------------------------------------------------*/
+  #preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: #fff;
+    transition: all 0.6s ease-out;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  #preloader:before,
+  #preloader:after {
+    content: "";
+    position: absolute;
+    border: 4px solid var(--color-primary);
+    border-radius: 50%;
+    animation: animate-preloader 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  
+  #preloader:after {
+    animation-delay: -0.5s;
+  }
+  
+  @keyframes animate-preloader {
+    0% {
+      width: 10px;
+      height: 10px;
+      top: calc(50% - 5px);
+      left: calc(50% - 5px);
+      opacity: 1;
+    }
+  
+    100% {
+      width: 72px;
+      height: 72px;
+      top: calc(50% - 36px);
+      left: calc(50% - 36px);
+      opacity: 0;
+    }
+  }
+  
+  /*--------------------------------------------------------------
+  # Disable aos animation delay on mobile devices
+  --------------------------------------------------------------*/
+  @media screen and (max-width: 768px) {
+    [data-aos-delay] {
+      transition-delay: 0 !important;
+    }
+  }
+  
+/* theme color css */
+
+#color-gallery{
+    display: grid;
+    grid-template-columns: repeat( 3 , 1.5rem);
+    justify-content: space-around;
+    gap: 1rem;
+    background-color: var(--body-color);
+    
+
+}
+#color-gallery .color-item{
+    position: relative;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#color-gallery .color-item::before{
+    position: absolute;
+    content: "";
+    width: .5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    /* transform: translate(50%,50%); */
+    background-color:white;
+}
+#color-gallery .color-item.dark::before{
+    height: 50%;
+    width: 100%;
+    background-color: black;
+    bottom: 0;
+    border-radius: 0;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    
+    
+}
+.d-flex-center{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* ul css start */
+
+ul{
+    margin-bottom: 0 !important;
+    list-style: none;
+    padding: 0;
+    
+}
+ul li a {text-decoration: none !important;}
+/* table and button css start */
+th,td ,button,.btn {color: var(--text-color); text-transform: capitalize;}
+.dpanel-btn{
+    background-color: var(--first-color);
+    color: var(--text-color);
+}
+.dpanel-btn-alt{
+    background-color: var( --first-color-lighter);
+}
+.dpanel-btn:hover{
+  background-color: var(--first-color-dark);
+}
+/* pagination css start  */
+.pagination  li:first-child{
+    margin-left: auto;
+}
+.page-item .page-link {
+        color: var(--first-color) ;
+}    
+.page-item.active .page-link {
+        background-color: var(--first-color) ;border: var(--first-color); color: white;
+    }    
+    /* dropdown css start */
+.dropdown{
+    position: relative;
+}
+.dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+.dropdown-menu a {
+    color: var(--text-color) !important;
+}
+.dropdown-menu.active{
+    /* opacity: 1; */
+    display: block;
+}
+.dropdown-item.disabled{
+    color:var(--text-color) !important;
+    background-color: var(--first-color-light);
+}
+/* headings css start */
+
+
+/* chart  css start */
+
+ .circle-chart__circle {
+    animation: circle-chart-fill 2s reverse; /* 1 */ 
+    transform: rotate(-90deg); /* 2, 3 */
+    transform-origin: center; /* 4 */
+  }
+  
+  /**
+   * 1. Rotate by -90 degree to make the starting point of the
+   *    stroke the top of the circle.
+   * 2. Scaling mirrors the circle to make the stroke move right
+   *    to mark a positive chart value.
+   * 3. Using CSS transforms on SVG elements is not supported by Internet Explorer
+   *    and Edge, use the transform attribute directly on the SVG element as a
+   * .  workaround (https://markus.oberlehner.net/blog/pure-css-animated-svg-circle-chart/#part-4-internet-explorer-strikes-back).
+   */
+  .circle-chart__circle--negative {
+    transform: rotate(-90deg) scale(1,-1); /* 1, 2, 3 */
+  }
+  
+  .circle-chart__info {
+    animation: circle-chart-appear 2s forwards;
+    opacity: 0;
+    transform: translateY(0.3em);
+  }
+  
+  @keyframes circle-chart-fill {
+    to { stroke-dasharray: 0 100; }
+  }
+  
+  @keyframes circle-chart-appear {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Layout styles only, not needed for functionality */
+  
+  .grid {
+    display: grid;
+    /* grid-column-gap: 1em;
+  background-color:; */
+    grid-row-gap: 1em;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  @media (min-width: 31em) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+
+  /*  card css start  */
+  /* cards css */
+.card{
+  background-color:var(--body-color) ;
+    border-left: 8px solid var(--clr);
+}
+.card .card-heading{
+    color : var(--clr);
+}
+  .small-box{
+    height: 10rem;
+    /* background-color: red; */
+    position: relative;
+  }
+  .card-container i {
+    color: var(--text-color-alt);
+  }
+  .border-left-success{
+    border-left: 0.5rem solid var(--bs-success);
+  }

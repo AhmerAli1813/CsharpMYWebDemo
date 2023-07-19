@@ -1,0 +1,110 @@
+﻿@model ShoppingCart.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProductId" />
+            
+            <div class="form-group">
+                <label asp-for="PName" class="control-label"></label>
+                <input asp-for="PName" class="form-control" />
+                <span asp-validation-for="PName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DOT" class="control-label"></label>
+                <input asp-for="DOT" class="form-control" />
+                <span asp-validation-for="DOT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SDescription" class="control-label"></label>
+                <input asp-for="SDescription" class="form-control" />
+                <span asp-validation-for="SDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LDescription" class="control-label"></label>
+                <input asp-for="LDescription" class="form-control" />
+                <span asp-validation-for="LDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Qty" class="control-label"></label>
+                <input asp-for="Qty" class="form-control" />
+                <span asp-validation-for="Qty" class="text-danger"></span>
+            </div>
+            <input  type="hidden" asp-for="PImage" class="form-control" />
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Slug" class="control-label"></label>
+                <input asp-for="Slug" class="form-control" />
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAvailable" /> @Html.DisplayNameFor(model => model.IsAvailable)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Category"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <div style="width:200px; height:250px; ">
+            <img src=" @Html.DisplayFor(model => model.PImage)" width="200" class="mb-2" />
+            <div>
+                <form class="w-100" asp-action="EditImage" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+
+                        <input type="hidden" asp-for="ProductId" />
+                        <input type="hidden" asp-for="PName" class="form-control" />
+                        <input type="hidden" asp-for="DOT" class="form-control" />
+                        <input type="hidden" asp-for="SDescription" class="form-control" />
+                        <input type="hidden" asp-for="LDescription" class="form-control" />
+                        <input type="hidden" asp-for="Qty" class="form-control" />
+                        <label asp-for="PImage" class="control-label"></label>
+                        <input name="Img" type="file" asp-for="PImage" class="form-control" />
+                        <span asp-validation-for="PImage" class="text-danger"></span>
+                        <input type="hidden" asp-for="Price" class="form-control" />
+                        <input type="hidden"  asp-for="Slug" class="form-control" />
+                        <input type="hidden"  class="form-check-input" asp-for="IsAvailable" /> @Html.DisplayNameFor(model => model.IsAvailable)
+                        <select asp-for="CategoryId" class="form-control d-none" asp-items="ViewBag.Category"></select>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="update" class="btn dpanel-btn" />
+                    </div>
+                </form>
+            </div>
+            
+            
+        </div>
+
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

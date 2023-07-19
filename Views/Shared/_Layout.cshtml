@@ -1,56 +1,206 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AhmerMYWebDemo</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/AhmerMYWebDemo.styles.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPanel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="~/assets/vendor/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/assets/css/-variables.css">
+    <link rel="stylesheet" href="~/assets/css/-global.css">
+    <link rel="stylesheet" href="~/assets/css/dpanel.css">
+
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AhmerMYWebDemo</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Employees</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ESalaries" asp-action="Index">Salary</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Department" asp-action="Index">Department</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Login">Login</a>
-                        </li>
-                    </ul>
-                </div>
+    <div class="Main-Container">
+
+        <header id="header" class="header  dpanel-header  justify-content-between  d-flex align-items-center">
+
+            <div class=" w-25 d-flex-center">
+                <button class="btn txt-clr me-1 " id="menu-toggle"> <i class="fas fa-arrow-left"></i></button>
+                <i class="mobile-nav-toggle   mobile-nav-show fas fa-list-alt"></i>
+                <i class="mobile-nav-toggle  mobile-nav-hide me-5 mt-3 d-none fas fa-list"></i>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
+
+            <nav id="navbar " class="navbar  ">
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a asp-controller="User" asp-action="Create" > sign up</a></li>
+                    <li><a asp-controller="User" asp-action="Login"> sign in</a></li>
+                    <li><a href="DPanel-main/index.html">Admin Panel</a></li>
+                    <li><a href="#chefs">Chefs</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li class="dropdown">
+                        <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        <ul>
+                            <li><a href="blank.html">Blank Page</a></li>
+                            <li class="dropdown">
+                                <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                                <ul>
+                                    <li><a href="#">Deep Drop Down 1</a></li>
+                                    <li><a href="#">Deep Drop Down 2</a></li>
+                                    <li><a href="#">Deep Drop Down 3</a></li>
+                                    <li><a href="#">Deep Drop Down 4</a></li>
+                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Drop Down 2</a></li>
+                            <li><a href="#">Drop Down 3</a></li>
+                            <li><a href="#">Drop Down 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav><!-- .navbar -->
+            <!-- left navbar -->
+            <nav class="d-flex left-navbar ">
+                <ul class=" d-flex-center  dpanel-nav-right">
+                    <li class="nav-item search-btn">  <a href="" class="nav-link"><i class="fas fa-search"></i></a></li>
+                    <li class="dropdown" data-dropdown="#color-gallery">
+                        <a type="button" class="position-relative nav-link">
+                            <i class="fas fa-tint"></i>
+                            <span class="position-absolute top-1  start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+                        </a>
+                        <div class="dropdown-menu" id="color-gallery">
+                            <a class="dropdown-item color-item dark" data-color-sts="dark" data-hsl="340" style="--clr:hsl(340 100% 50%);" href="#"></a>
+                            <a class="dropdown-item color-item dark" data-color-sts="dark" data-hsl="199" style="--clr:hsl(199, 100%, 50%);" href="#"></a>
+                            <a class="dropdown-item color-item dark" data-color-sts="dark" data-hsl="41" style="--clr:hsl(41, 100%, 50%);" href="#"></a>
+                            <a class="dropdown-item color-item" data-hsl="170" style="--clr:hsl(170 69% 61%);" href="#"></a>
+                            <a class="dropdown-item color-item" data-hsl="230" style="--clr:hsl(230 69% 61%);" href="#"></a>
+                            <a class="dropdown-item color-item" data-hsl="288" style="--clr:hsl(288, 69%, 61%);" href="#"></a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-sm txt-clr position-relative">
+                            <i class="fas fa-envelope"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                99+
+
+                            </span>
+                        </button>
+                    </li>
+                    <li class="nav-item"><a href="" class="nav-link active text-capitalize"><strong>@ViewBag.Name</strong></a></li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link active d-flex">
+
+                            <img src="~/assets/img/user1-128x128.jpg" width="30" height="30" style="border-radius: 50%;" alt="">
+                        </a>
+                    </li>
+                    <li class="nav-item"><a href="" class="nav-link  active"><i class="fas fa-sign-out-alt"></i></a></li>
+
+
+                </ul>
+            </nav>
+
+        </header><!-- End Header -->
+        <aside class="dpanel-sidebar  ">
+
+
+            <ul class="nav mt-4">
+
+
+                <li class="sidebar-item " style="pointer-events: none; padding-right: 50px; margin-bottom: 50px;">
+
+
+                    <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+                        <h1 class="title">Dpanel<span style="color: var(--first-color-lighter) !important;">.</span></h1>
+                        <span class="icons"><i class="fas fa-apple"></i> </span>
+                    </a>
+
+                </li>
+
+
+                <li class="sidebar-item ">
+
+                    <a href="" class="">
+                        <span class="icon"><img src="~/assets/img/user1-128x128.jpg" /></span>
+                        <span class="title">ahmer</span>
+                    </a>
+                    <!-- <span class="icon"><i  class="icon   fas  fa-sign-out-alt "></i></span> -->
+
+
+                </li>
+                <li class="sidebar-item active ">
+                    <a href="" class="">
+                        <i class="icon   fas  fa-columns"></i>
+                        <span class="title">dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item ">
+                    <a href="" class="">
+                        <i class="icon   fas  fa-user-alt"></i>
+                        <span class="title">User</span>
+                    </a>
+                </li>
+                <li class="sidebar-item ">
+                    <a asp-controller="Products" asp-action="Index">
+                        <i class="icon   fas  fa-chart-bar"></i>
+                        <span class="title">Products</span>
+                    </a>
+                </li>
+                <hr class="bg-body w-100 ">
+                <li class="sidebar-item ">
+                    <a href="" class="">
+                        <i class="icon   fas  fa-sign-out-alt"></i>
+                        <span class="title">logout</span>
+                    </a>
+                </li>
+
+            </ul>
+        </aside>
+        <main class="dpanel-content  ">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row ">
+                        <div class="col-sm-6 d-flex-center ">
+                            <div class="dpanel-headings me-auto ms-3">
+
+                                <h1 class=" dpanel-title">Dashboard</h1>
+                                <h6 class="dpanel-subtitle">ALl found</h6>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="col-sm-4 me-auto  offset-2 d-flex-center">
+                            <ol class="breadcrumb ">
+                                <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item active"><a href="charts.html">Cards</a></li>
+
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <section class="dpanel-body">
+
+                @RenderBody()
+
+            </section>
+
+
+            <div href="#" class="scroll-top d-flex align-items-center  justify-content-center">
+                <i class="fas fa-arrow-up"></i>
+            </div>
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - AhmerMYWebDemo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="~/assets/js/dpanel.js"></script>
+
+
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
